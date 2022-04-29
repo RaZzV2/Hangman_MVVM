@@ -1,0 +1,26 @@
+﻿<Window x:Class="Spanzuratoarea_MVP.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Spanzuratoarea_MVP.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{StaticResource UserContext}">
+    <Grid>
+        <ListView Name="List" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding Users}" Margin="0,24,556,114">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Content="New User" HorizontalAlignment="Left" Margin="49,349,0,0" VerticalAlignment="Top" Height="31" Command="{Binding NewUser}"/>
+        <Button Content="Delete User" HorizontalAlignment="Right" Margin="0,349,482,0" VerticalAlignment="Top" Height="31" Width="69" Command="{Binding RemoveUser}"/>
+        <Button Content="Play" HorizontalAlignment="Left" Margin="500,349,0,0" VerticalAlignment="Top" Height="31" Command="{Binding PlayButton}" />
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="727,349,0,0" VerticalAlignment="Top" Height="31" Command="{Binding Cancel}"/>
+        <Label Content="Welcome to Hangman! Enjoy this game!   " HorizontalAlignment="Left" Margin="334,10,0,0" VerticalAlignment="Top" Width="334" Background="Transparent" HorizontalContentAlignment="Center" Foreground="#FF998888" FontFamily="Bookman Old Style" FontSize="16"/>
+        <Image Source="{Binding SelectedItem.Image, ElementName=List}"  HorizontalAlignment="Left" Height="100" Margin="465,83,0,0" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+
+</Window>
